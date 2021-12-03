@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="js/scripts.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./css/estilos.css" />
+
+    <title>Listado Automoviles</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <img src="./src/imgs/company-car-logo.png" />
+        <div class="container-navbar-right">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <div class="navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html"
+                      >Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      aria-current="page"
+                      href="./administracion.html"
+                      >Anuncio</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="portada-container">
+        <img src="./src/imgs/portraitadmin.jpg" alt="" class="portada-imagen" />
+      </div>
+    </header>
+    <main class="crud">
+      <div class="container-fluid ml-1">
+        <section clas="form-articulos">
+          <h2>ADMINISTRACIÓN</h2>
+          <div class="custom-alert" id="custom-alert">
+            <h1 id="custom-alert-message">Operacion realizada exitosamente</h1>
+            <button class="button-alert-ok" id="button-alert">OK</button>
+          </div>
+          <form>
+            <div class="container-fluid">
+              <div class="row">
+                <fieldset>
+                  <legend>Informacion del anuncio</legend>
+                  <div class="row">
+                    <div class="form-item col-sm-6">
+                      <p>Título</p>
+
+                      <input
+                        required
+                        type="text"
+                        name="txtTitulo"
+                        placeholder="Título"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="form-item col-sm-6">
+                      <p>Transaccion</p>
+                      <input
+                        type="radio"
+                        name="rdoTransaccion"
+                        value="alquiler"
+                        required
+                      />
+                      Alquiler
+                      <input
+                        type="radio"
+                        name="rdoTransaccion"
+                        value="venta"
+                        required
+                      />Venta
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="form-item col-sm-6">
+                      <p>Descripcion</p>
+                      <input
+                        required
+                        type="text"
+                        name="txtDescripcion"
+                        placeholder="Descripcion"
+                        autocomplete="off"
+                      />
+                    </div>
+
+                    <br />
+                    <div class="form-item col-sm-6">
+                      <p>Precio</p>
+                      <input
+                        required
+                        type="number"
+                        name="numPrecio"
+                        placeholder="Precio"
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div class="final-listing">
+                    <div class="final-list-item">
+                      <img src="./src/imgs/carDoor.svg" /><input
+                        required
+                        type="number"
+                        name="numPuertas"
+                        placeholder="Puertas"
+                      />
+                    </div>
+                    <div class="final-list-item">
+                      <img src="./src/imgs/kms.svg" />
+                      <input
+                        required
+                        type="number"
+                        name="numKms"
+                        placeholder="KMs"
+                      />
+                    </div>
+                    <div class="final-list-item">
+                      <img src="./src/imgs/potencia.svg" />
+                      <input
+                        required
+                        type="number"
+                        name="numPotencia"
+                        placeholder="Potencia"
+                      />
+                    </div>
+                  </div>
+                  <div class="checkboxes-container">
+                    <fieldset class="fieldset-checkboxes">
+                      <legend>Revisiones al dia</legend>
+                      <div class="checkbox-item-container">
+                        <input
+                          type="checkbox"
+                          name="revisiones"
+                          id="frenos"
+                          value="Frenos"
+                        />
+                        <label for="frenos">Frenos</label>
+                      </div>
+                      <div class="checkbox-item-container">
+                        <input
+                          type="checkbox"
+                          name="revisiones"
+                          id="aceite"
+                          value="Aceite"
+                        />
+                        <label for="aceite">Aceite</label>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="final-list-item">
+                    <img src="./src/imgs/save.svg" />
+                    <input
+                      type="submit"
+                      value="Guardar"
+                      id="save-and-modify-button"
+                    />
+                    <div class="button-delete-container">
+                      <img src="./src/imgs/trashcan.png" />
+                      <button id="delete-button">Eliminar</button>
+                    </div>
+                    <div class="button-cancel-container">
+                      <img src="./src/imgs/cancel.png" />
+                      <button id="cancel-button">Cancelar Edicion</button>
+                    </div>
+                    <br />
+                  </div>
+
+                  <input type="hidden" name="txtId" id="txtId" /> <br />
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <div class="filter-container">
+          <label>Transacción</label>
+          <select class="form-style form-control" id="selectFiltro">
+            <option selected disabled>Elija transacción</option>
+            <option value="todos">Todos</option>
+            <option value="venta">Venta</option>
+            <option value="alquiler">Alquiler</option>
+          </select>
+
+          <label>Promedio de costo </label>
+          <input id="text-promedio" type="text" class="form-control" readonly />
+          <label>Maximo de precio </label>
+          <input
+            id="text-maximo-precio"
+            type="text"
+            class="form-control"
+            readonly
+          />
+          <label>Minimo de precio </label>
+          <input
+            id="text-minimo-precio"
+            type="text"
+            class="form-control"
+            readonly
+          />
+          <label>Promedio de potencia </label>
+          <input
+            id="text-promedio-potencia"
+            type="text"
+            class="form-control"
+            readonly
+          />
+        </div>
+
+        <div class="table">
+          <table class="table table-dark table-switches">
+            <thead>
+              <tr>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="titulo"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />
+                    Titulo
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="descripcion"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />Descripción
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="transaccion"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />Transacción
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="precio"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />Precio
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="numPuertas"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />Puertas
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="numKms"
+                      type="checkbox"
+                      id="checkboxShowColumns"
+                      checked
+                    />Kilometros
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="numPotencia"
+                      type="checkbox"
+                      id="flexSwitchCheckChecked"
+                      checked
+                    />Potencia
+                  </div>
+                </th>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="aceiteAlDia"
+                      type="checkbox"
+                      id="flexSwitchCheckChecked"
+                      checked
+                    />Aceite al dia
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      name="frenoAlDia"
+                      type="checkbox"
+                      id="flexSwitchCheckChecked"
+                      checked
+                    />Frenos al dia
+                  </div>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <div class="container-fluid ml-8">
+          <div class="spinner-container">
+            <img src="./src/imgs/wheelspinner.png" class="spinner" />
+          </div>
+          <section class="listado-articulos">
+            <div id="appTable" class="autoTable"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <div class="footer-container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <div class="navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Nosotros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="./administracion.html"
+                  >Anuncio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <!--  <script>
+    /* titulo transaccion descripcion precio num_wc num_estacionamiento num_dormitorio */
+
+    const arrayToTable = (array) => {};
+  </script> -->
+</html>

@@ -1,0 +1,64 @@
+{
+  "anuncios-autos": [
+    {
+      "id": 2,
+      "titulo": "Ford Fiesta",
+      "transaccion": "venta",
+      "descripcion": "Un auto para toda la familia",
+      "precio": "500000",
+      "numPuertas": "5",
+      "numKms": "15000",
+      "numPotencia": "2000",
+      "aceiteAlDia": false,
+      "frenoAlDia": true
+    },
+    {
+      "titulo": "Mini Cooper",
+      "transaccion": "alquiler",
+      "descripcion": "Un auto compacto",
+      "precio": "1000",
+      "numPuertas": "3",
+      "numKms": "5000",
+      "numPotencia": "3000",
+      "frenoAlDia": true,
+      "aceiteAlDia": true,
+      "id": 3
+    },
+    {
+      "id": 5,
+      "titulo": "Ford Taurus",
+      "transaccion": "venta",
+      "descripcion": "Un auto para toda la familia",
+      "precio": "1000000",
+      "numPuertas": "5",
+      "numKms": "15000",
+      "numPotencia": "2000",
+      "aceiteAlDia": true,
+      "frenoAlDia": false
+    },
+    {
+      "id": 6,
+      "titulo": "Ford Max",
+      "transaccion": "alquiler",
+      "descripcion": "Un auto Robusto",
+      "precio": "250000",
+      "numPuertas": "5",
+      "numKms": "15000",
+      "numPotencia": "1500",
+      "aceiteAlDia": true,
+      "frenoAlDia": false
+    },
+    {
+      "id": 6,
+      "titulo": "Ford Max II",
+      "transaccion": "venta",
+      "descripcion": "Un auto más Robusto",
+      "precio": "350000",
+      "numPuertas": "5",
+      "numKms": "15000",
+      "numPotencia": "2400",
+      "aceiteAlDia": true,
+      "frenoAlDia": false
+    }
+  ]
+}
